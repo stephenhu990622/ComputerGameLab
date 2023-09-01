@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class PrintAndHide : MonoBehaviour
 {
     public Renderer rend;
     int i = 3;
@@ -16,7 +16,25 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         
-        Debug.Log(gameObject.name+":" + i);
+        
         i++;
+        if (gameObject.tag == "Red" && i == 100)
+        {
+            gameObject.SetActive(false);
+        }
+
+        if (gameObject.tag == "Blue" && i== Random.Range(150,251))
+        {
+            
+            rend = GetComponent<MeshRenderer>();
+            rend.enabled = false;
+            
+        }
+        Debug.Log(gameObject.name+":" + i);
+        
+
+        
+
+
     }
 }
